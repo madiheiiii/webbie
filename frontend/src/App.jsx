@@ -1,13 +1,19 @@
 import {useFloating} from '@floating-ui/react';
+import {useState, useEffect} from 'react';
 import './App.css'
+import MainWindow from './components/MainWindow';
 
 export default function App() {
-  const {tiny1, floatingStyles} = useFloating();
+  const [mainWindow, setMainwindow] = useState(false);
+  function click(){
+
+
+  }
   return (
-    <>
-      <div ref={refs.setFloating} style={floatingStyles}>
-        <img src="/frontend/components/tiny1.png" alt="info" width={40} />
-      </div>
-    </>
+    <div className="desktop">
+        <button onClick={() => setMainwindow(!mainWindow)}>
+    </button>
+    {}
+    </div>
   );
 }
