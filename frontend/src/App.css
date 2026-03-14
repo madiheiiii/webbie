@@ -167,12 +167,10 @@ body{
 
 @keyframes move-right-to-left {
   0% {
-    /* Start position: fully outside to the right (100% of container width + 100% of element's width) */
-    transform: translateX(70vw); /* Use vw for full viewport width consideration */
+    transform: translateX(70vw);
   }
   100% {
-    /* End position: fully outside to the left */
-    transform: translateX(-70vw); /* Moves left by 100% of its own width */
+    transform: translateX(-70vw);
   }
 }
 
