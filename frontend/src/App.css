@@ -50,6 +50,19 @@ body{
   cursor: pointer;
   border: none;
 }
+.spotify-widget {
+  position: absolute;
+  right: 60px;
+  bottom: 35px;
+
+  width: clamp(280px, 35vw, 380px);
+  height: 80px;
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
 
 
 
@@ -164,13 +177,13 @@ body{
 
 .vinyl {
   position: absolute;
-  left: -50vw;
+  left: 0;
   top: 10px;
 
   width: clamp(400px, 80vw, 600px);
   height: clamp(400px, 80vw, 600px);
 
-  transform: translate(-50%, -50%); 
+  transform: translateX(-70%);
 
   background-image: url('../components/main_page/vinyl.png');
   background-size: contain;
@@ -206,16 +219,16 @@ body{
  */
 @-webkit-keyframes rotate-scale-up {
   0% {
-    -webkit-transform: rotateZ(0);
-            transform: rotateZ(0);
+    -webkit-transform: rotateZ(0)translateX(-50%);
+            transform: rotateZ(0) translateX(-50%);
   }
   50% {
-    -webkit-transform: rotateZ(180deg);
-            transform: rotateZ(180deg);
+    -webkit-transform: rotateZ(180deg)translateX(-50%);
+            transform: translateX(-50%) rotateZ(180deg);
   }
   100% {
-    -webkit-transform: rotateZ(360deg);
-            transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg)translateX(-50%);
+            transform: translateX(-50%) rotateZ(360deg);
   }
 }
 @keyframes rotate-scale-up {

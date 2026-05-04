@@ -1,6 +1,7 @@
 import {useState, useRef} from 'react';
 import './App.css'
 import dropSound from "../components/audio/drop_002.ogg";
+import SpotifyWidget from "./Spotify";
 
 export default function App() {
   const [mainWindow, setMainWindow] = useState(false);
@@ -13,6 +14,7 @@ return (
     <div className="vinyl rotate-scale-up"></div>
     <div className="fox"></div>
     <div className="name"></div>
+    <SpotifyWidget />
 
     <div className="menuButtons">
     <button
