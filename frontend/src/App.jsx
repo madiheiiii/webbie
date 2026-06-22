@@ -2,12 +2,19 @@ import {useState, useRef} from 'react';
 <link href='https://fonts.googleapis.com/css?family=Indie Flower' rel='stylesheet'></link>
 import './App.css'
 import dropSound from "../components/audio/drop_002.ogg";
-import SpotifyWidget from "./Spotify";
+import SpotifyWidget from "../src/Spotify";
+import illustration1 from "../art/illustration1.jpg";
+import illustration2 from "../art/illustration2.jpg";
+import illustration3 from "../art/illustration3.jpg";
+import illustration4 from "../art/illustration4.jpg";
+import illustration5 from "../art/illustration5.jpg";
 
 export default function App() {
   const [mainWindow, setMainWindow] = useState(false);
   const [aboutWindow, setAboutWindow] = useState(false);
   const audio = useRef(null);
+  const [workWindow, setWorkWindow] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 return (
     <div className="page">
     <audio ref={audio} src={dropSound} />
@@ -38,7 +45,11 @@ return (
     <button
       type="button"
       className="work"
-      onClick={() => {audio.current.currentTime = 0; audio.current.play(); setAboutWindow(!aboutWindow)}}
+      onClick={() => {
+        audio.current.currentTime = 0;
+        audio.current.play();
+        setWorkWindow(true);
+      }}
     ></button>
     </div>
 
@@ -96,6 +107,205 @@ return (
         </div>
       </div>
     )}
+    {workWindow && (
+  <div className="workWindow">
+    <div className="header">
+      <button
+        type="button"
+        className="exit"
+        onClick={() => {
+          audio.current.currentTime = 0;
+          audio.current.play();
+          setWorkWindow(false);
+        }}
+        style={{ fontFamily: "Indie Flower", fontSize: "20px" }}
+      >
+        [x]
+      </button>
+
+      <div
+        className="titleAbout"
+        style={{ fontFamily: "Indie Flower", fontSize: "30px" }}
+      >
+        <p>showing my work</p>
+      </div>
+    </div>
+
+    <div className="workScroll">
+      <section className="workIntro">
+        <h1>things i've made ♡</h1>
+        <p>
+          a small collection of my work across computer science, illustration,
+          painting, and animation.
+        </p>
+      </section>
+
+      <section className="workSection">
+        <h2>computer science</h2>
+
+        <div className="projectGrid">
+          <article className="projectCard">
+            <img
+              src="/projects/gradify.png"
+              alt="Gradify project preview"
+              className="projectImage"
+            />
+
+            <div className="projectText">
+              <h3>Gradify</h3>
+              <p>
+                A full-stack grading platform where professors can create
+                assignments and students can submit Java code for automated
+                testing, style feedback, and AI feedback.
+              </p>
+
+              <div className="tags">
+                <span>React</span>
+                <span>Spring Boot</span>
+                <span>PostgreSQL</span>
+                <span>Java</span>
+              </div>
+
+              <div className="projectLinks">
+                <a
+                  href="https://github.com/your-username/gradify"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article className="projectCard">
+            <img
+              src="/projects/portfolio.png"
+              alt="Portfolio website preview"
+              className="projectImage"
+            />
+
+            <div className="projectText">
+              <h3>Personal Portfolio</h3>
+              <p>
+                A playful interactive portfolio inspired by music, desktop
+                interfaces, animation, and hand-drawn visual design.
+              </p>
+
+              <div className="tags">
+                <span>React</span>
+                <span>CSS</span>
+                <span>Responsive Design</span>
+              </div>
+
+              <div className="projectLinks">
+                <a
+                  href="https://github.com/your-username"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article className="projectCard">
+            <div className="projectPlaceholder">
+              <p>future project...</p>
+            </div>
+
+            <div className="projectText">
+              <h3>HCI / AR Research Idea</h3>
+              <p>
+                Early exploration into immersive tools, computer vision, and
+                exposure-based interaction design.
+              </p>
+
+              <div className="tags">
+                <span>Unity</span>
+                <span>AR/VR</span>
+                <span>Research</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="workSection">
+        <h2>illustration</h2>
+
+        <div className="artGrid">
+          {[
+            illustration1,
+            illustration2,
+            illustration3,
+            illustration4,
+            illustration5,
+          ].map((image, index) => (
+            <button
+              key={image}
+              className="artPiece"
+              onClick={() => setSelectedImage(image)}
+            >
+              <img src={image} alt={`Illustration ${index + 1}`} />
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="workSection">
+        <h2>painting</h2>
+
+        <div className="paintingGrid">
+          {[
+            "/art/painting1.jpg",
+            "/art/painting2.jpg",
+            "/art/painting3.jpg",
+          ].map((image, index) => (
+            <button
+              key={image}
+              className="paintingPiece"
+              onClick={() => setSelectedImage(image)}
+            >
+              <img src={image} alt={`Painting ${index + 1}`} />
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="workSection">
+        <h2>animation</h2>
+
+        <div className="animationGrid">
+          <div className="animationCard">
+            <iframe
+              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+              title="Animation reel"
+              allowFullScreen
+            ></iframe>
+
+            <p>hand-drawn animation reel</p>
+          </div>
+
+          <div className="animationCard">
+            <img
+              src="/animations/animation-preview.gif"
+              alt="Animation preview"
+            />
+            <p>2D character animation study</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+)}
+
+{selectedImage && (
+  <div className="imageModal" onClick={() => setSelectedImage(null)}>
+    <img src={selectedImage} alt="Selected artwork" />
+  </div>
+)}
   
   </div>
 );
