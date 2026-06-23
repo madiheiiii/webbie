@@ -39,16 +39,19 @@ body{
   text-align: center;
 } */
 .aboutWindow {
-  width: 600px;
-  height: 500px;
+  width: min(900px, 88vw);
+  height: min(720px, 82vh);
   position: absolute;
-  left: 600px;
-  top: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 1);
-  border-radius: 15px;
+  background: white;
+  border-radius: 18px;
   overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.28);
+  z-index: 20;
 
 }
 .aboutTop{
