@@ -212,6 +212,17 @@ body{
   z-index: 20;
 }
 
+.linkScroll {
+  overflow-y: auto;
+  padding: 35px 60px 70px;
+  font-family: "Indie Flower", cursive;
+  color: #333;
+}
+.linkIntro {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
 .workScroll {
   overflow-y: auto;
   padding: 35px 60px 70px;

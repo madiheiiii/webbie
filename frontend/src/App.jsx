@@ -15,6 +15,7 @@ export default function App() {
   const audio = useRef(null);
   const [workWindow, setWorkWindow] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [linksWindow, setLinksWindow] = useState(false);
 return (
     <div className="page">
     <audio ref={audio} src={dropSound} />
@@ -35,7 +36,7 @@ return (
     <button
       type="button"
       className="links"
-      onClick={() => {audio.current.currentTime = 0; audio.current.play(); setAboutWindow(!aboutWindow)}}
+      onClick={() => {audio.current.currentTime = 0; audio.current.play(); setLinksWindow(!linksWindow)}}
     ></button>
     <button
       type="button"
@@ -107,6 +108,44 @@ return (
         </div>
       </div>
     )}
+    {linksWindow && (
+      <div className="linksWindow">
+        <div className = "header">
+          <button
+            type="button"
+            className="exit"
+            onClick={() => {
+              audio.current.currentTime = 0;
+              audio.current.play();
+              setLinksWindow(false);
+            }}
+            style={{ fontFamily: "Indie Flower", fontSize: "20px" }}> [x]
+          </button>
+          <div className="titleAbout" style={{ fontFamily: "Indie Flower", fontSize: "30px" }}>
+            <p>links</p>
+          </div>
+          <div className="linkScroll">
+      <section className="linkIntro">
+        <h1>things i've made ♡</h1>
+        <p>
+          a small collection of my work across computer science, illustration,
+          painting, and animation.
+        </p>
+      </section>
+        <div className="animationGrid">
+        <div className="animationCard">
+          <iframe
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+            title="Animation reel"
+            allowFullScreen
+          ></iframe>
+          </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+    )}
     {workWindow && (
   <div className="workWindow">
     <div className="header">
@@ -130,7 +169,7 @@ return (
         <p>showing my work</p>
       </div>
     </div>
-
+      
     <div className="workScroll">
       <section className="workIntro">
         <h1>things i've made ♡</h1>
@@ -298,8 +337,6 @@ return (
         </div>
       </section>
     </div>
-  </div>
-)}
 
 {selectedImage && (
   <div className="imageModal" onClick={() => setSelectedImage(null)}>
@@ -308,5 +345,6 @@ return (
 )}
   
   </div>
-);
+)}
+  );
 }
