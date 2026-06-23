@@ -8,6 +8,11 @@ import illustration2 from "../art/illustration2.jpg";
 import illustration3 from "../art/illustration3.jpg";
 import illustration4 from "../art/illustration4.jpg";
 import illustration5 from "../art/illustration5.jpg";
+import luminarium from "../cs_projects/luminarium.jpg";
+import lilguys from "../cs_projects/lilguys.jpg";
+import ToJam from "../cs_projects/ToJam.jpg";
+import painting1 from "../art/painting1.jpg";
+import painting2 from "../art/painting2.jpg";
 
 export default function App() {
   const [mainWindow, setMainWindow] = useState(false);
@@ -16,6 +21,7 @@ export default function App() {
   const [workWindow, setWorkWindow] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [linksWindow, setLinksWindow] = useState(false);
+  const [contactWindow, setContactWindow] = useState(false);
 return (
     <div className="page">
     <audio ref={audio} src={dropSound} />
@@ -41,7 +47,7 @@ return (
     <button
       type="button"
       className="contact"
-      onClick={() => {audio.current.currentTime = 0; audio.current.play(); setAboutWindow(!aboutWindow)}}
+      onClick={() => {audio.current.currentTime = 0; audio.current.play(); setContactWindow(!contactWindow)}}
     ></button>
     <button
       type="button"
@@ -108,6 +114,29 @@ return (
         </div>
       </div>
     )}
+    {contactWindow && (
+      <div className="contactWindow">
+        <div className = "header">
+          <button type="button" className="exit"  onClick={() => {audio.current.currentTime = 0; audio.current.play(); setContactWindow(!contactWindow)}} style={{ fontFamily: 'Indie Flower', fontSize: '20px' }}>
+            <p>[x]</p>
+          </button>
+          <div className = "titleAbout" style={{ fontFamily: 'Indie Flower', fontSize: '30px' }}>
+            <p>contact</p>
+          </div>
+        </div>
+        <div className="contactScroll">
+          <div className="contactIntro" style={{ fontFamily: 'Indie Flower', fontSize: '20px' }}>
+            <h2>hehe do you want to reach out?^^</h2>
+            <p>the easiest way to reach out to me is through email! i'd love to hear from you.</p>
+            <ul>
+              <li>soo, you can email me at: <a href="mailto:maddieetorab@gmail.com">maddieetorab@gmail.com</a></li>
+            </ul>
+            <p>or you can click this tiny button below:</p>
+
+          </div>
+        </div>
+      </div>
+    )}
     {linksWindow && (
       <div className="linksWindow">
         <div className = "header">
@@ -124,27 +153,14 @@ return (
           <div className="titleAbout" style={{ fontFamily: "Indie Flower", fontSize: "30px" }}>
             <p>links</p>
           </div>
+          </div>
           <div className="linkScroll">
-      <section className="linkIntro">
-        <h1>things i've made ♡</h1>
-        <p>
-          a small collection of my work across computer science, illustration,
-          painting, and animation.
-        </p>
-      </section>
-        <div className="animationGrid">
-        <div className="animationCard">
-          <iframe
-            src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-            title="Animation reel"
-            allowFullScreen
-          ></iframe>
-          </div>
-          </div>
+            <section className="linkIntro">
+              <h1>i shall update this tab with my socials and youtube when i work on them more!♡</h1>
+            </section>
         </div>
 
         </div>
-      </div>
     )}
     {workWindow && (
   <div className="workWindow">
@@ -174,9 +190,12 @@ return (
       <section className="workIntro">
         <h1>things i've made ♡</h1>
         <p>
-          a small collection of my work across computer science, illustration,
-          painting, and animation.
+          a small collection of my work across computer science, and art.
         </p>
+      </section>
+      
+      <section className="workOffers">
+        <h1>I accept offers through my <a href="mailto:maddieetorab@gmail.com">email</a>!</h1>
       </section>
 
       <section className="workSection">
@@ -184,18 +203,14 @@ return (
 
         <div className="projectGrid">
           <article className="projectCard">
-            <img
-              src="/projects/gradify.png"
-              alt="Gradify project preview"
-              className="projectImage"
-            />
 
             <div className="projectText">
               <h3>Gradify</h3>
               <p>
                 A full-stack grading platform where professors can create
                 assignments and students can submit Java code for automated
-                testing, style feedback, and AI feedback.
+                testing, style feedback, and AI feedback. As a researcher, I added features 
+                for checking code style and made it accessible through frontend.
               </p>
 
               <div className="tags">
@@ -207,7 +222,7 @@ return (
 
               <div className="projectLinks">
                 <a
-                  href="https://github.com/your-username/gradify"
+                  href="https://github.com/madiheiiii/checkstyleCustomErrorMessages"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -216,34 +231,110 @@ return (
               </div>
             </div>
           </article>
-
           <article className="projectCard">
-            <img
-              src="/projects/portfolio.png"
-              alt="Portfolio website preview"
-              className="projectImage"
-            />
-
+            <button
+              type="button"
+              className="projectImageButton"
+              onClick={() => setSelectedImage(luminarium)}
+              aria-label="Open Luminarium Phantoms project preview"
+            >
+              <img
+                src={luminarium}
+                alt="Luminarium Phantoms project preview"
+                className="projectImage"
+              />
+            </button>
             <div className="projectText">
-              <h3>Personal Portfolio</h3>
-              <p>
-                A playful interactive portfolio inspired by music, desktop
-                interfaces, animation, and hand-drawn visual design.
-              </p>
+              <h3>Luminarium Phantoms</h3>
+              <p>An audio-reactive generative art project using p5.js that responds to live microphone input with changing colors, movement, and visual effects and creates adjustable mandala-style patterns using symmetry, random walkers, and UI controls for brush size, color, and visual style.</p>
 
               <div className="tags">
-                <span>React</span>
-                <span>CSS</span>
-                <span>Responsive Design</span>
+                <span>P5.js</span>
+                <span>JavaScript</span>
               </div>
 
               <div className="projectLinks">
                 <a
-                  href="https://github.com/your-username"
+                  href="https://editor.p5js.org/madiheiiii/full/XE-5ZFf6H"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  P5.js
+                </a>
+              </div>
+            </div>
+          </article>
+          <article className="projectCard">
+            <button
+              type="button"
+              className="projectImageButton"
+              onClick={() => setSelectedImage(ToJam)}
+              aria-label="Open ToJam project preview"
+            >
+              <img
+                src={ToJam}
+                alt="ToJam project preview"
+                className="projectImage"
+              />
+            </button>
+            <div className="projectText">
+              <h3>The Secret War(between Cows and Goats)</h3>
+              <p>َA game made in a team of 4 for the 2025 TOJam showcasing the theme of the jam with the goat.</p>
+
+              <div className="tags">
+                <span>Aseperite</span>
+                <span>pixel art</span>
+              </div>
+
+              <div className="projectLinks">
+                <a
+                  href="https://ndjia.itch.io/tojam2025"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  itch.io
+                </a>
+              </div>
+              <div className="projectLinks">
+                <a
+                  href="https://github.com/NDJia/tojam2025"
                   target="_blank"
                   rel="noreferrer"
                 >
                   GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+          <article className="projectCard">
+            <button
+              type="button"
+              className="projectImageButton"
+              onClick={() => setSelectedImage(lilguys)}
+              aria-label="Open Lil Guys project preview"
+            >
+              <img
+                src={lilguys}
+                alt="Lil Guys project preview"
+                className="projectImage"
+              />
+            </button>
+            <div className="projectText">
+              <h3>Lil Guys</h3> <p>in progress</p>
+              <p>A group project as a gamified productivity tool that combines a web app and Chrome extension to track browsing behavior and turn it into an item collecting game experience.</p>
+
+              <div className="tags">
+                <span>P5.js</span>
+                <span>JavaScript</span>
+              </div>
+
+              <div className="projectLinks">
+                <a
+                  href="https://github.com/madiheiiii/LilGuy"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  P5.js
                 </a>
               </div>
             </div>
@@ -257,8 +348,7 @@ return (
             <div className="projectText">
               <h3>HCI / AR Research Idea</h3>
               <p>
-                Early exploration into immersive tools, computer vision, and
-                exposure-based interaction design.
+                Early exploration into immersive tools, and exposure-based interaction design.
               </p>
 
               <div className="tags">
@@ -272,7 +362,7 @@ return (
       </section>
 
       <section className="workSection">
-        <h2>illustration</h2>
+        <h2>illustrations and paintings</h2>
 
         <div className="artGrid">
           {[
@@ -281,6 +371,8 @@ return (
             illustration3,
             illustration4,
             illustration5,
+            painting1,
+            painting2,
           ].map((image, index) => (
             <button
               key={image}
@@ -294,47 +386,21 @@ return (
       </section>
 
       <section className="workSection">
-        <h2>painting</h2>
-
-        <div className="paintingGrid">
-          {[
-            "/art/painting1.jpg",
-            "/art/painting2.jpg",
-            "/art/painting3.jpg",
-          ].map((image, index) => (
-            <button
-              key={image}
-              className="paintingPiece"
-              onClick={() => setSelectedImage(image)}
-            >
-              <img src={image} alt={`Painting ${index + 1}`} />
-            </button>
-          ))}
-        </div>
+        <h2> art-related achievements:</h2>
+        <p>stop motion award, secondary art school - 2024</p>
+        <a
+          href="https://www.pana.ir/%D8%A8%D8%AE%D8%B4-%D9%81%D8%B1%D9%87%D9%86%DA%AF%DB%8C-32/1462984-%D8%A8%D8%B1%DA%AF%D8%B2%DB%8C%D8%AF%DA%AF%D8%A7%D9%86-%D8%AC%D8%B4%D9%86%D9%88%D8%A7%D8%B1%D9%87-%D9%87%D8%A7%DB%8C-%D9%87%D9%86%D8%B1%DB%8C-%D9%85%D8%AF%D8%B1%D8%B3%D9%87-%D9%85%D8%B9%D8%B1%D9%81%DB%8C-%D8%B4%D8%AF%D9%86%D8%AF"
+          target="_blank"
+          rel="noreferrer"
+        >
+          More information (in Persian)
+        </a>
       </section>
-
       <section className="workSection">
-        <h2>animation</h2>
+        <h2>other Developments:</h2>
+        <p>* this website!^^</p>
+        <p>* thaaaat's it for now! there are other projects in progress which i'll release updates for here soon!</p>
 
-        <div className="animationGrid">
-          <div className="animationCard">
-            <iframe
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-              title="Animation reel"
-              allowFullScreen
-            ></iframe>
-
-            <p>hand-drawn animation reel</p>
-          </div>
-
-          <div className="animationCard">
-            <img
-              src="/animations/animation-preview.gif"
-              alt="Animation preview"
-            />
-            <p>2D character animation study</p>
-          </div>
-        </div>
       </section>
     </div>
 
