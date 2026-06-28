@@ -87,7 +87,7 @@ return (
               <li>work on research projects at school (check out projects for more information)</li>
               <li>make illustrations, hand-drawn animations, and crafts for myself and the people I care about, and</li>
               <li>work on my hci project idea</li>
-              <li>(i'm also getting more into having fun while leetcoding)</li>
+              <li>(i'm also getting more into having fun leetcoding)</li>
             </ul>
             <strong>Education</strong>
             <div className="educationItem">
@@ -98,10 +98,9 @@ return (
             <ul>
               <li>cooking, I looove trying new recipes. my recent favorites are Bulgogi and Çılbır.</li>
               <li>reading! fiction and sometimes non-fictions</li>
-              <li>cookin</li>
               <li>music, listening and making (i've only had my hands on piano though~)</li>
               <li>digital art, i used to do illustrations and 2d animation at Tehran Fine Arts School for Girls</li>
-              <li>learning languages, currently working on German!</li>
+              <li>learning languages, currently working on German and Mandarin Chinese!</li>
             </ul>
             <strong>Languages</strong>
             <div className="languagesItem">
