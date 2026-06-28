@@ -189,6 +189,7 @@ body{
   position: absolute;
   right: 60px;
   bottom: 35px;
+  left:45%;
 
   width: clamp(280px, 35vw, 380px);
   height: 80px;
@@ -549,8 +550,8 @@ body{
 }
 .menuButtons{
   position: absolute;
-  left: 65%;
-  top: 55%;
+  left: 60%;
+  top: 57%;
   transform: translate(-50%, -50%);
 
   display: flex;
@@ -607,8 +608,8 @@ body{
   width:clamp(300px, 80vw, 650px);
   height: clamp(300px, 80vw, 205px);
   position: absolute;
-  left: 40%;
-  top: 0;
+  left: 35%;
+  top: 5%;
   background-color: transparent;
 }
 .cloud1 {
@@ -636,7 +637,7 @@ body{
 
 .vinyl {
   position: absolute;
-  left: 0;
+  left: -25%;
   top: 10px;
 
   width: clamp(400px, 80vw, 600px);
